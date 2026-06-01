@@ -85,10 +85,14 @@ function App() {
     if (activeToy === 'BEAR') {
       window.location.href = 'https://bearbuddy.netlify.app/';
     } else if (activeToy === 'BIRD') {
-      console.log('Bird game coming soon');
+      window.location.href = 'https://birdbuddygame.netlify.app/';
     } else {
       alert('Please connect a NebuBuddy toy to start playing!');
     }
+  };
+
+  const handlePopItClick = () => {
+    window.location.href = 'https://amitnebulisergame.netlify.app/';
   };
 
   let activeToyDetails: any = {
@@ -200,7 +204,11 @@ function App() {
               <img src="/bear card.svg" alt="Adventure Mode" className="mode-card-img" />
             </div>
 
-            <div className="mode-card-img-wrapper">
+            <div 
+              className="mode-card-img-wrapper" 
+              onClick={handlePopItClick} 
+              style={{ cursor: 'pointer' }}
+            >
               <img src="/Pop it.svg" alt="Pop It" className="mode-card-img" />
             </div>
 
