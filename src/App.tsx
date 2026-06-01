@@ -81,6 +81,16 @@ function App() {
     }
   }, []);
 
+  const handlePlayClick = () => {
+    if (activeToy === 'BEAR') {
+      window.location.href = 'https://bearbuddy.netlify.app/';
+    } else if (activeToy === 'BIRD') {
+      console.log('Bird game coming soon');
+    } else {
+      alert('Please connect a NebuBuddy toy to start playing!');
+    }
+  };
+
   let activeToyDetails: any = {
       tag: "NO TOY CONNECTED",
       name: "Ready to Play?",
@@ -164,7 +174,15 @@ function App() {
                }}
              ></div>
              
-             <button className="play-button">
+             <button 
+               className="play-button"
+               onClick={handlePlayClick}
+               disabled={!activeToy || activeToy === 'NONE' || activeToy === 'IDLE'}
+               style={{
+                 opacity: (!activeToy || activeToy === 'NONE' || activeToy === 'IDLE') ? 0.5 : 1,
+                 cursor: (!activeToy || activeToy === 'NONE' || activeToy === 'IDLE') ? 'not-allowed' : 'pointer'
+               }}
+             >
                <span className="play-icon">▶</span> Play
              </button>
           </div>
